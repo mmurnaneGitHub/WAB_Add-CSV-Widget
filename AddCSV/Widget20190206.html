@@ -1,0 +1,49 @@
+<div style="width:100%;height:100%;overflow-y:auto">
+        <div class = "widgetDescription"><p><b>Instructions</b></p>
+        <ol>
+        <li>Drag and Drop a CSV File onto this panel to automatically map points.</li> 
+        <li>File must have either an <br><b>Address</b> field with no city, state, zip values 
+            <br><i>&nbsp; OR</i>
+            <br> <b>Latitude</b> and <b>Longitude</b> fields.
+        </li>
+        <li>Valid field names include:
+            <br><b>Address</b> - <i>Address</i>
+            <br><b>Latitude</b> - <i>latitude, lat, y, ycenter, point_y</i>
+            <br><b>Longitude</b> - <i>longitude, lon, long, x, xcenter, point_x</i>
+        </li>
+        </ol>
+        </div>
+        
+        <form data-dojo-attach-point="inputForm">
+        <div class="divCheckPlot">
+        	<div class="projectionChoice"></div>
+        </div>
+        <table data-dojo-attach-point="actionButtonsContainer" cellspacing="0" class="tblActionContainer">
+        <tr>
+        	<td width="100%" class="tdCSVButton"></td>
+        	<td width="25%" class="tdClearButton"><div class="clear-CSVresult" data-dojo-attach-point="clearResultsBtn" data-dojo-attach-event="click:clearCSVResults">${nls.clearResults}</div></td>
+        </tr>
+        </table>
+        </form>
+        
+        <div data-dojo-attach-point="results" class="hide">
+        	<div class="results-header">${nls.messages}</div>
+            <table class="widgets-results-table" data-dojo-attach-point="widgetsResultsTable" cellspacing="0">
+                <tbody data-dojo-attach-point="widgetsResultsTableBody">
+                    <tr class="controls">
+                        <td class="tdProcessing"></td>
+                    </tr>
+                    <tr class="controls">
+                        <td class="tdProcessing">
+                            <div data-dojo-attach-point="resultsPlottingImage" id="resultsPlottingImage" class="status processing" /></div>
+                        </td>
+                        <td>
+                            <div class="result-text" data-dojo-attach-point="resultsPlotting">${nls.plottingRows}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="errorLink" data-dojo-attach-point="enrichErrors" data-dojo-attach-event="click:showErrorTable"></div>
+            <div class="hide errorList" id="enrichErrorsList" data-dojo-attach-point="enrichErrorsList"></div>
+        </div>
+</div>
